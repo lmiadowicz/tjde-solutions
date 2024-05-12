@@ -8,13 +8,18 @@ def test_load_urls_valid_file(tmpdir: LocalPath) -> None:
     file_path = tmpdir / "test_input.tsv"
     with open(file_path, "w") as f:
         f.write("url\n")
-        f.write("https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1\n")
+        f.write(
+            "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1\n"
+        )
 
     df = load_urls_from_tsv(file_path)
 
     assert isinstance(df, pd.DataFrame)
     assert len(df) == 1
-    assert df['url'].iloc[0] == "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1"
+    assert (
+            df["url"].iloc[0]
+            == "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1"
+    )
 
 
 def test_load_urls_nonexistent_file() -> None:
@@ -24,9 +29,9 @@ def test_load_urls_nonexistent_file() -> None:
         load_urls_from_tsv(file_path)
 
 
-def test_load_urls_empty_file(tmpdir: LocalPath) -> None:
+def test_load_urls_empty_file(tmpdira: LocalPath) -> None:
     file_path = tmpdir / "empty.tsv"
-    open(file_path, 'a').close()
+    open(file_path, "a").close()
 
     with pytest.raises(pd.errors.EmptyDataError) as e:
         load_urls_from_tsv(file_path)
