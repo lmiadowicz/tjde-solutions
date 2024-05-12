@@ -22,3 +22,11 @@ def test_load_urls_nonexistent_file() -> None:
 
     with pytest.raises(FileNotFoundError) as e:
         load_urls_from_tsv(file_path)
+
+
+def test_load_urls_empty_file(tmpdir: LocalPath) -> None:
+    file_path = tmpdir / "empty.tsv"
+    open(file_path, 'a').close()
+
+    with pytest.raises(pd.errors.EmptyDataError) as e:
+        load_urls_from_tsv(file_path)

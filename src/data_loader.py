@@ -9,5 +9,11 @@ def load_urls_from_tsv(file_path):
     except FileNotFoundError as e:
         logger.error(f"File not found: {file_path}, error: {e}")
         raise
+    except pd.errors.EmptyDataError as e:
+        logger.error(f"No data or columns to parse from {file_path}, error: {e}")
+        raise
+    except Exception as e:
+        logger.error(f"Unexpected error while loading URLs from {file_path}, error: {e}")
+        raise
 
     return df[['url']]
