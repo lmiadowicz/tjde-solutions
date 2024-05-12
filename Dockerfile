@@ -1,6 +1,7 @@
 FROM python:3.12-slim
 
 RUN groupadd -r appgroup && useradd -r -g appgroup appuser
+ENV PYTHONPATH "${PYTHONPATH}:/app/src"
 
 WORKDIR /app
 
