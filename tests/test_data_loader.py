@@ -17,8 +17,8 @@ def test_load_urls_valid_file(tmpdir: LocalPath) -> None:
     assert isinstance(df, pd.DataFrame)
     assert len(df) == 1
     assert (
-            df["url"].iloc[0]
-            == "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1"
+        df["url"].iloc[0]
+        == "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1"
     )
 
 
