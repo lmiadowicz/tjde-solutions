@@ -1,5 +1,5 @@
 import pandas as pd
-from logger import logger
+from src.logger import logger
 
 
 def load_urls_from_tsv(file_path: str) -> pd.DataFrame:
