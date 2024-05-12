@@ -19,7 +19,7 @@ def load_urls_from_tsv(file_path: str) -> pd.DataFrame:
     logger.info(f"Loading URLs from file: {file_path}")
 
     try:
-        df = pd.read_csv(file_path, delimiter='\t', dtype=str)
+        df = pd.read_csv(file_path, delimiter="\t", dtype=str)
     except FileNotFoundError as e:
         logger.error(f"File not found: {file_path}, error: {e}")
         raise
@@ -27,13 +27,15 @@ def load_urls_from_tsv(file_path: str) -> pd.DataFrame:
         logger.error(f"No data or columns to parse from {file_path}, error: {e}")
         raise
     except Exception as e:
-        logger.error(f"Unexpected error while loading URLs from {file_path}, error: {e}")
+        logger.error(
+            f"Unexpected error while loading URLs from {file_path}, error: {e}"
+        )
         raise
 
-    if 'url' not in df.columns:
+    if "url" not in df.columns:
         logger.error(f"Invalid TSV format: missing 'url' column in {file_path}")
         raise ValueError(f"Invalid TSV format: missing 'url' column in {file_path}")
 
     logger.info(f"Loaded URLs successfully from {file_path}.")
 
-    return df[['url']]
+    return df[["url"]]
