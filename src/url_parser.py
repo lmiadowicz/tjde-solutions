@@ -1,6 +1,6 @@
 from urllib.parse import urlparse, parse_qs
 
-from logger import logger
+from src.logger import logger
 
 
 def parse_urls(df):
