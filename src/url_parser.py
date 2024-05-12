@@ -4,6 +4,17 @@ from src.logger import logger
 
 
 def parse_urls(df):
+    """Parses a DataFrame of URLs and extracts marketing parameters.
+
+    Args:
+        df (pandas.DataFrame): A DataFrame containing a column 'url' with URLs.
+
+    Returns:
+        pandas.DataFrame: A DataFrame containing the parsed parameters.
+
+    Raises:
+        ValueError: If the DataFrame is empty.
+    """
     logger.info("Starting URL parsing")
 
     if df.empty:
