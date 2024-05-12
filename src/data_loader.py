@@ -16,4 +16,10 @@ def load_urls_from_tsv(file_path):
         logger.error(f"Unexpected error while loading URLs from {file_path}, error: {e}")
         raise
 
+    if 'url' not in df.columns:
+        logger.error(f"Invalid TSV format: missing 'url' column in {file_path}")
+        raise ValueError(f"Invalid TSV format: missing 'url' column in {file_path}")
+
+    logger.info(f"Loaded URLs successfully from {file_path}.")
+
     return df[['url']]

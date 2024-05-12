@@ -30,3 +30,12 @@ def test_load_urls_empty_file(tmpdir: LocalPath) -> None:
 
     with pytest.raises(pd.errors.EmptyDataError) as e:
         load_urls_from_tsv(file_path)
+
+
+def test_load_urls_invalid_format(tmpdir: LocalPath) -> None:
+    file_path = tmpdir / "test_input.tsv"
+    with open(file_path, "w") as f:
+        f.write("invalid_column\n")
+
+    with pytest.raises(ValueError) as exc_info:
+        load_urls_from_tsv(file_path)
