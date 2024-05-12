@@ -1,9 +1,9 @@
+import pandas as pd
 from urllib.parse import urlparse, parse_qs
-
 from src.logger import logger
 
 
-def parse_urls(df):
+def parse_urls(df: pd.DataFrame) -> pd.DataFrame:
     """Parses a DataFrame of URLs and extracts marketing parameters.
 
     Args:

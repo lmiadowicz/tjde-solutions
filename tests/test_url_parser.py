@@ -1,19 +1,19 @@
+from typing import List
 import pandas as pd
 import pytest
-
 from src.url_parser import parse_urls
 
 
 def test_parse_valid_urls():
-    urls = [
+    urls: List[str] = [
         "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1",
         "https://www.tidio.com/?a_g_campaignid=12345&a_g_keyword=test",
     ]
 
     # Convert the list of URLs to a DataFrame
-    df = pd.DataFrame({"url": urls})
+    df: pd.DataFrame = pd.DataFrame({"url": urls})
 
-    expected_output = pd.DataFrame({
+    expected_output: pd.DataFrame = pd.DataFrame({
         "url": [
             "https://www.tidio.com/?a_bucket=bucket1&a_type=type1&a_source=source1",
             "https://www.tidio.com/?a_g_campaignid=12345&a_g_keyword=test",
@@ -28,7 +28,7 @@ def test_parse_valid_urls():
         "ad_creative": ["", ""],
     })
 
-    df_parsed = parse_urls(df)
+    df_parsed: pd.DataFrame = parse_urls(df)
 
     # Check number of rows
     assert df_parsed.shape[0] == 2
@@ -45,7 +45,7 @@ def test_parse_valid_urls():
 
 def test_parse_empty_df():
     # Create an empty DataFrame
-    df = pd.DataFrame(columns=["url"])
+    df: pd.DataFrame = pd.DataFrame(columns=["url"])
 
     # Check if ValueError is raised when an empty DataFrame is passed
     with pytest.raises(ValueError):
