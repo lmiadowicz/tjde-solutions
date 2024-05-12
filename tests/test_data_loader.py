@@ -29,7 +29,7 @@ def test_load_urls_nonexistent_file() -> None:
         load_urls_from_tsv(file_path)
 
 
-def test_load_urls_empty_file(tmpdira: LocalPath) -> None:
+def test_load_urls_empty_file(tmpdir: LocalPath) -> None:
     file_path = tmpdir / "empty.tsv"
     open(file_path, "a").close()
 
