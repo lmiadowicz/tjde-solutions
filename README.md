@@ -16,7 +16,7 @@ Task 1
 - **Dockerized:** Runs seamlessly in a Docker container for portability and ease of deployment.
 
 Task 2
-- **VIEW + SQL Statement**
+- **(WIP) VIEW + SQL Statement**
 
 ## Prerequisites
 - **Docker:** Ensure you have Docker installed on your system. You can find installation instructions and downloads for your operating system on the official Docker website:
