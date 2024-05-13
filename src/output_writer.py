@@ -24,4 +24,4 @@ def write_results_to_tsv(file_path, data):
         logger.error(f"Error writing to file: {e}")
         raise
 
-    logger.info(f"Successfully wrote {len(data)} rows to {file_path}")  # Log number of rows
+    logger.info(f"Successfully wrote {len(data)} rows to {file_path}")
