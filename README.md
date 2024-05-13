@@ -19,13 +19,9 @@ Task 2
 - **(WIP) VIEW + SQL Statement**
 
 ## Prerequisites
-- **Docker:** Ensure you have Docker installed on your system. You can find installation instructions and downloads for your operating system on the official Docker website:
-
-   - [Docker Desktop for Mac]([https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/))
-   - [Docker Desktop for Windows]([https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/))
-   - [Docker Engine for Linux]([https://docs.docker.com/engine/install/](https://docs.docker.com/engine/install/))
-
+- **Docker:** Ensure you have Docker installed on your system.
 - **Python:** Ensure you have at least Python 3.12 
+
 ## Usage
 1. **Input Data:**
    - Place your input TSV file (with a column named "url") in the `data/input` directory.
